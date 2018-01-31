@@ -1,0 +1,1720 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="Content-Type"content="text/html; charset=utf-8">
+  <title>全球旅游</title>
+  <link rel="stylesheet" type="text/css" href="css/index.css" />
+  <link type="text/css" href="css/top.css" rel="stylesheet"/>
+  <link type="text/css" href="css/popular.css" rel="stylesheet"/>
+  <link type="text/css" href="css/menu.css" rel="stylesheet"/>
+  <link type="text/css" href="css/add.css" rel="stylesheet"/>
+  <link type="text/css" href="css/style.css" rel="stylesheet"/>
+  <link type="text/css" href="css/footer.css" rel="stylesheet"/>
+  
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/jquery.event.drag-1.5.min.js"></script>
+  <script type="text/javascript" src="js/jquery.touchSlider.js"></script>
+  <script type="text/javascript">
+        $(function() {
+            //焦点图1插件代码开始
+            $(".main_visual1").hover(
+                function(){
+                    $("#btn_prev1,#btn_next1").fadeIn()
+                },
+                function(){
+                    $("#btn_prev1,#btn_next1").fadeOut()
+                }
+            );
+            $dragBln = false;
+            $(".main_image1").touchSlider({
+                flexible : true,
+                speed : 450,
+                btn_prev : $("#btn_prev1"),
+                btn_next : $("#btn_next1"),
+                paging : $(".flicking_con1 a"),
+                counter : function (e){
+                    $(".flicking_con1 a").removeClass("on").eq(e.current-1).addClass("on");
+                }
+            });
+            $(".main_image1").bind("mousedown", function() {
+                $dragBln = false;
+            });
+            
+            $(".main_image1").bind("dragstart", function() {
+                $dragBln = true;
+            });
+            
+            $(".main_image1 a").click(function(){
+                if($dragBln) {
+                    return false;
+                }
+            });
+            timer1 = setInterval(function(){
+                $("#btn_next1").click();
+            }, 5000);
+            $(".main_visual1").hover(
+                function(){
+                    clearInterval(timer1);
+                },
+                function(){
+                    timer1 = setInterval(
+                        function(){
+                            $("#btn_next1").click();
+                        },5000
+                    );
+                }
+            );
+            
+            $(".main_image1").bind("touchstart",function(){
+                clearInterval(timer1);
+            }).bind("touchend", function(){
+                timer1 = setInterval(function(){
+                    $("#btn_next1").click();
+                }, 5000);
+            });
+            //焦点图1插件代码结束
+			
+			//焦点图2插件代码开始
+            $(".main_visual2").hover(
+                function(){
+                    $("#btn_prev2,#btn_next2").fadeIn()
+                },
+                function(){
+                    $("#btn_prev2,#btn_next2").fadeOut()
+                }
+            );
+            $dragBln = false;
+            $(".main_image2").touchSlider({
+                flexible : true,
+                speed : 450,
+                btn_prev : $("#btn_prev2"),
+                btn_next : $("#btn_next2"),
+                paging : $(".flicking_con2 a"),
+                counter : function (e){
+                    $(".flicking_con2 a").removeClass("on").eq(e.current-1).addClass("on");
+                }
+            });
+            $(".main_image2").bind("mousedown", function() {
+                $dragBln = false;
+            });
+            
+            $(".main_image2").bind("dragstart", function() {
+                $dragBln = true;
+            });
+            
+            $(".main_image2 a").click(function(){
+                if($dragBln) {
+                    return false;
+                }
+            });
+            timer2 = setInterval(function(){
+                $("#btn_next2").click();
+            }, 5000);
+            $(".main_visual2").hover(
+                function(){
+                    clearInterval(timer2);
+                },
+                function(){
+                    timer2 = setInterval(
+                        function(){
+                            $("#btn_next2").click();
+                        },5000
+                    );
+                }
+            );
+            
+            $(".main_image2").bind("touchstart",function(){
+                clearInterval(timer2);
+            }).bind("touchend", function(){
+                timer2 = setInterval(function(){
+                    $("#btn_next2").click();
+                }, 5000);
+            });
+            //焦点图2插件代码结束
+        });
+    </script>
+</head>
+
+<body>
+  <header>
+    <nav class="top_links">
+        <div class="container">
+        	<div class="top-left">
+            	<div id="top-title"></div>
+            </div>
+            <div class="contact_info">
+                <ul>
+                    <li><a href="">登录</a></li>
+                    <li>
+                      <a href="" id="wechat"></a>
+                      <a href="" id="microblog"></a>
+                    </li>
+                    <li><a href="">关注我们</a></li>
+                    <li><a href="">活动</a></li>   
+                    <li><a href="">反馈</a></li>
+                </ul>
+            </div>                
+        </div>
+    </nav><!-- end top links -->
+     
+    <nav class="topbar">
+      <div class="publicNav_nav">
+        <p><a href="index.html" class="currHover">首页</a></p>
+        <p><a href="" class="currHover">目的地</a></p>
+        <p><a href="" class="currHover">酒店</a></p>
+        <p><a href="" class="currHover">景点</a></p>
+        <p><a href="" class="currHover">美食</a></p>
+        <p><a href="" class="currHover">游记</a></p>    
+        <p><a href="" class="currHover">指南</a></p> 
+        <div class="publicNavHover"></div>
+      </div>
+	  <script type="text/javascript">
+	  //导航切换，根据域名判断当前显示
+	  $(function(){
+		  function navTab(indexPath){
+			  if(window.location.href.indexOf(indexPath)>0){
+				  return true;
+			  }else{
+				  return false;
+			  }		
+		  } 
+		  var currNav;
+		  if(navTab('')){
+				  currNav=1;$(".currHover").eq(currNav).addClass("hover");
+			  }else{
+				  currNav=0;$(".currHover").eq(currNav).addClass("hover");
+		  }
+		  function navHover(curr){
+			  var $navHover=$(".currHover").eq(curr);
+			  $navHover.parent().siblings().children().removeClass("hover");
+			  $(".publicNavHover").stop(true,false).animate({"left":$navHover.parent().position().left,"width":$navHover.parent().width()+41},100);
+		  }
+		  navHover(currNav);
+		  $(".publicNav_nav").children("p").hover(function(){
+			  var curr=$(this).index();
+			  navHover(curr);
+		  });
+		  $(".publicNav_nav").hover(function(){},function(){navHover(currNav)});
+	  });
+	  //导航切换结束
+	  </script>
+	</nav>
+    
+    <nav class="searchBar">
+      <div class="searchingBar">
+          <div>查找: </div>
+          <input class="mainSearch1" type="text" autocomplete="off" onblur="" onfocus="" placeholder="酒店、餐厅、景点玩乐">
+          <div class="secondDiv">附近: </div>
+          <input class="mainSearch2" type="text" onblur="" onfocus="" value="" placeholder="输入目的地" autocomplete="off">
+          <button class="searchButton" type="submit">
+              	<label class="searchButton_icon"></label>搜索
+          </button>
+      </div>
+    </nav>
+  </header>
+  
+  <section class="content_center">
+    <div class="content">
+      <div class="sidebar">
+        <h2>全部旅游产品分类</h2>
+        <ul id="menu">
+          <li><a href="">市内旅游</a>    
+            <div class="cms_submenu">
+              <div class="cmsmenuleft" >
+                <dl class="menu_recommend">
+                  <dt>热门类目</dt>
+                  <dd>
+                    <i><a target="_blank" href="">广场游</a></i>
+                    <i><a target="_blank" href="">滨海游</a></i>
+                    <i><a target="_blank" href="">公园游</a></i>
+                    <i><a target="_blank" href="">老建筑游</a></i>
+                    <i><a target="_blank" href="">特色景点游</a></i>
+                  </dd>
+                  <div class="clear"></div>
+                </dl>
+                <dl class="menu_new">
+                  <dt>活动推荐</dt>
+                  <dd>
+                    <a href="">[精品路线] 旅顺、金石滩、环市、发现王国纯玩四日游</a><br/>
+                    <a href="">[优惠活动] 老虎滩海洋公园一日游</a><br/>
+                    <a href="">[特价活动] 发现王国荧光夜跑第二季(时间+费用+路线)</a>
+                  </dd>
+                </dl>
+              </div>
+              <div class="clear"></div>
+            </div>
+          </li><!-- End 4 columns Item -->
+
+          <li><a href="">海岛度假</a>    
+            <div class="cms_submenu">
+              <div class="cmsmenuleft" >
+                <dl class="menu_recommend">
+                  <dt>热门类目</dt>
+                  <dd>
+                    <i><a href="">海王九岛</a></i>
+                    <i><a href="">旅顺蛇岛</a></i>
+                    <i><a href="">棒槌岛</a></i>
+                    <i><a href="">海猫岛</a></i>
+                    <i><a href="">獐子岛</a></i>
+                  </dd>
+                  <div class="clear"></div>
+                </dl>
+                
+                <dl class="menu_new">
+                  <dt>活动推荐</dt>
+                  <dd>
+                    <a href="">[精品路线] 海参采捕-深海野生海参</a><br/>
+                    <a href="">[优惠活动] 客船--皮口港到各个海岛客</a><br/>
+                    <a href="">[特价活动] 塞里岛--沙滩干净，海水干</a>
+                  </dd>
+                </dl>
+              </div>
+              <div class="clear"></div>
+            </div>
+          </li><!-- End 4 columns Item -->
+            
+          <li><a href="">近郊旅游</a>    
+            <div class="cms_submenu">
+              <div class="cmsmenuleft" >
+                <dl class="menu_recommend">
+                  <dt>热门类目</dt>
+                  <dd>
+                    <i><a href="">旅顺</a></i>
+                    <i><a href="">普兰店</a></i>
+                    <i><a href="">庄河</a></i>
+                    <i><a href="">金州</a></i>
+                    <i><a href="">瓦房店</a></i>
+                  </dd>
+                  <div class="clear"></div>
+                </dl>
+                
+                <dl class="menu_new">
+                  <dt>活动推荐</dt>
+                  <dd>
+                    <a href="">[精品路线] 旅顺</a><br/>
+                    <a href="">[优惠活动] 老虎滩海洋公园一日游</a><br/>
+                    <a href="">[特价活动] 发现王国荧光夜跑第二季(时间+费用+路线)</a>
+                  </dd>
+                </dl>
+              </div>
+              <div class="clear"></div>
+            </div>
+          </li><!-- End 4 columns Item -->
+            
+          <li><a href="">特价线路</a>    
+            <div class="cms_submenu">
+              <div class="cmsmenuleft" >
+                <dl class="menu_recommend">
+                  <dt>热门类目</dt>
+                  <dd>
+                    <i><a href="">市内一日游</a></i>
+                    <i><a href="">历史遗迹</a></i>
+                    <i><a href="">红海滩风景</a></i>
+                    <i><a href="">冰峪沟</a></i>
+                    <i><a href="">金石滩</a></i>
+                    <i><a href="">深海露营</a></i>
+                  </dd>
+                  <div class="clear"></div>
+                </dl>
+                <div class="clear"></div>
+                </dl>
+                <dl class="menu_new">
+                  <dt>活动推荐</dt>
+                  <dd>
+                    <a href="">[精品路线] 历史遗迹旅顺品质一日游</a><br/>
+                    <a href="">[优惠活动] 老虎滩海洋公园一日游</a><br/>
+                    <a href="">[特价活动] 金石滩5A级休闲纯玩一日游</a>
+                  </dd>
+                </dl>
+              </div>
+              <div class="clear"></div>
+            </div>
+          </li><!-- End 4 columns Item -->
+            
+          <li><a href="">主题旅游</a>    
+            <div class="cms_submenu">
+              <div class="cmsmenuleft" >
+                <dl class="menu_recommend">
+                  <dt>热门类目</dt>
+                  <dd>
+                    <i><a href="">历史遗迹</a></i>
+                    <i><a href="">红色旅游</a></i>
+                    <i><a href="">清凉大海</a></i>
+                    <i><a href="">亲亲宝贝</a></i>
+                    <i><a href="">温泉之旅</a></i>
+                    <i><a href="">滑雪天堂</a></i>
+                  </dd>
+                  <div class="clear"></div>
+                </dl>
+                
+                <dl class="menu_new">
+                  <dt>活动推荐</dt>
+                  <dd>
+                    <a href="">[精品路线] 红色之旅旅顺、金石滩纯玩二日游</a><br/>
+                    <a href="">[优惠活动] 大连金石滩2015暑假特别优惠活动</a><br/>
+                    <a href="">[特价活动] 大连清明亲子春游好去处</a>
+                  </dd>
+                </dl>
+              </div>
+            
+              <div class="clear"></div>
+            </div>
+          </li><!-- End 4 columns Item -->
+                
+          <li><a href="">特色旅游</a>    
+            <div class="cms_submenu">
+              <div class="cmsmenuleft" >
+                <dl class="menu_recommend">
+                  <dt>热门类目</dt>
+                  <dd>
+                    <i><a href="">星海广场</a></i>
+                    <i><a href="">金石滩</a></i>
+                    <i><a href="">圣亚海洋世界</a></i>
+                    <i><a href="">滨海路</a></i>
+                    <i><a href="">植物园</a></i>
+                    <i><a href="">动物园</a></i>
+                  </dd>
+                  <div class="clear"></div>
+                </dl>
+                
+                <dl class="menu_new">
+                  <dt>活动推荐</dt>
+                  <dd>
+                    <a href="">[精品路线]大连2015黄金海岸露营美食节</a><br/>
+                    <a href="">[优惠活动]冰峪沟特色活动之冰峪沟赏灯会</a><br/>
+                    <a href="">[特价活动]大连金石滩国际沙滩文化节</a>
+                  </dd>
+                </dl>
+              </div>
+              
+              <div class="clear"></div>
+            </div>
+          </li><!-- End 4 columns Item -->
+            
+          <div class="clear"></div> 
+        </ul>
+      </div>
+      <!-- 焦点图开始 -->
+      <div class="main_visual main_visual1">
+        <div class="flicking_con flicking_con1">
+          <a href="#">1</a>
+          <a href="#">2</a>
+          <a href="#">3</a>
+          <a href="#">4</a>
+          <a href="#">5</a>
+        </div>
+        <div class="main_image main_image1">
+          <ul>
+            <li><span class="img_1"></span></li>
+            <li><span class="img_2"></span></li>
+            <li><span class="img_3"></span></li>
+            <li><span class="img_4"></span></li>
+            <li><span class="img_5"></span></li>
+          </ul>
+          <a href="javascript:;" id="btn_prev1"></a>
+          <a href="javascript:;" id="btn_next1"></a>
+        </div>
+      </div>
+      <!-- 焦点图结束 -->
+    </div>
+    <div class="clear"></div>
+  </section>
+  
+  <section>
+    <div id="popularDestinations">
+      <div class="section">
+        <ul class="regionTabs">
+          <li data-id="1" data-name="asia" class="active"><a href="##">华南</a></li>
+          <li data-id="2" data-name="europe"><a href="##">华中</a></li>
+          <li data-id="3" data-name="america"><a href="##">华北</a></li>
+          <li data-id="4" data-name="south_pacific"><a href="##">华东</a></li>
+          <li data-id="5" data-name="global"><a href="##">全国</a></li>
+        </ul>
+        <ul class="regionContent">
+          <li data-id="1" class="active">
+            <ul class="tiles easyClear">
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top1 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption">
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">
+                      <span class="append-margin"> 719,279条点评和建议 </span>
+                    </span>
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"天涯海角"</p>
+                      <span class="reviewInfo">来自:XXX</span>
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/sanya.jpg" class="photo_image" alt="" style="height: 221px; width: 368px; margin-top: 0px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">海南</a> <a class="cityName" data-pid="39552" target="_blank" href="">三亚</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons">
+                      <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href="">
+                        <span class="stb blockIcon">游记</span>
+                      </a>
+                      <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href="">
+                        <span class="cityGuide blockIcon">指南</span> 
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="counts">
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 758</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 1271</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 2688</a></span> 
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top2 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption"> 
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">
+                      <span class="append-margin"> 1,235,263条点评和建议 </span>
+                    </span>
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"桂林山水甲天下"</p>
+                      <span class="reviewInfo">来自:XXX</span>
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/guilin.jpg" class="photo_image" alt="" style="height: 221px; width: 368px; margin-top: 0px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">广西</a> <a class="cityName" data-pid="39552" target="_blank" href="">桂林</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons"> <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href=""> <span class="stb blockIcon">游记</span> </a> <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href=""> <span class="cityGuide blockIcon">指南</span> </a> </div>
+                  </div>
+                </div>
+                <div class="counts"> 
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 858</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 1766</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 10776</a></span> 
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top3 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption"> 
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">
+                      <span class="append-margin"> 349,359条点评和建议 </span> 
+                    </span>
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"东方之珠"</p>
+                      <span class="reviewInfo">来自:XXX</span>
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/hongkong.jpg" class="photo_image" alt="" style="height: 221px; width: 368px; margin-top: 0px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">中国</a> <a class="cityName" data-pid="39552" target="_blank" href="">香港</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons"> <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href=""> <span class="stb blockIcon">游记</span> </a> <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href=""> <span class="cityGuide blockIcon">指南</span> </a> </div>
+                  </div>
+                </div>
+                <div class="counts"> 
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 379</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 910</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 2056</a></span>
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top4 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption"> 
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">                    
+                      <span class="append-margin"> 818,226条点评和建议 </span> 
+                    </span> 
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"广州必去的地点"</p>
+                      <span class="reviewInfo">来自:XXX</span>
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/guangzhou.jpg" class="photo_image" alt="" style="height: 221px; width: 368px; margin-top: 0px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">广东</a> <a class="cityName" data-pid="39552" target="_blank" href="">广州</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons"> <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href=""> <span class="stb blockIcon">游记</span> </a> <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href=""> <span class="cityGuide blockIcon">指南</span> </a> </div>
+                  </div>
+                </div>
+                <div class="counts"> 
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 740</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 4608</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 90114</a></span> 
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top5 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption"> 
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">
+                      <span class="append-margin"> 275,203条点评和建议 </span> 
+                    </span> 
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"深圳最好的观光点"</p>
+                      <span class="reviewInfo">来自:XXX</span>
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/shenzhen.jpg" class="photo_image" alt="" style="height: 221px; width: 368px; margin-top: 0px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">广东</a> <a class="cityName" data-pid="39552" target="_blank" href="">深圳</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons"> <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href=""> <span class="stb blockIcon">游记</span> </a> <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href=""> <span class="cityGuide blockIcon">指南</span> </a> </div>
+                  </div>
+                </div>
+                <div class="counts"> 
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 362</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 1721</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 12144</a></span> 
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top6 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption"> 
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">
+                      <span class="append-margin"> 114,419条点评和建议 </span> 
+                    </span> 
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"爱拍照者一定要去的景点"</p>
+                      <span class="reviewInfo">来自:XXX</span>
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/macau.jpg" class="photo_image" alt="" style="height: 276px; width: 368px; margin-top: -28px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">中国</a> <a class="cityName" data-pid="39552" target="_blank" href="">澳门</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons"> <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href=""> <span class="stb blockIcon">游记</span> </a> <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href=""> <span class="cityGuide blockIcon">指南</span> </a> </div>
+                  </div>
+                </div>
+                <div class="counts"> 
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 197</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 287</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 501</a></span> 
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top7 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption"> 
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">
+                      <span class="append-margin"> 223,821条点评和建议 </span> 
+                    </span> 
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"天下第一滩"</p>
+                      <span class="reviewInfo">来自:XXX</span> 
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/beihai.jpg" class="photo_image" alt="" style="height: 276px; width: 368px; margin-top: -28px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">广西</a> <a class="cityName" data-pid="39552" target="_blank" href="">北海</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons"> <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href=""> <span class="stb blockIcon">游记</span> </a> <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href=""> <span class="cityGuide blockIcon">指南</span> </a> </div>
+                  </div>
+                </div>
+                <div class="counts"> 
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 291</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 1160</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 28282</a></span> 
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="caption">查看华南目的地</span> <span class="thumbCrop"> <img src="images/huanan.jpg"> </span> </a>
+                <div class="geos"> 
+                  <span class="geo-item"> 
+                    <a class="item-country" data-pid="39552" target="_blank" href="">广东省</a> 
+                    <a class="item-city" data-pid="39552" target="_blank" href="">肇庆</a> 
+                  </span> 
+                  <span class="geo-item"> 
+                    <a class="item-country" data-pid="39552" target="_blank" href="">海南省</a> 
+                    <a class="item-city" data-pid="39552" target="_blank" href="">海口</a> 
+                  </span> 
+                  <span class="geo-item"> 
+                    <a class="item-country" data-pid="39552" target="_blank" href="">广东省</a> 
+                    <a class="item-city" data-pid="39552" target="_blank" href="">珠海</a> 
+                  </span> 
+                  <span class="geo-item"> 
+                    <a class="item-country" data-pid="39552" target="_blank" href="">广西省</a> 
+                    <a class="item-city" data-pid="39552" target="_blank" href="">南宁</a> 
+                  </span> 
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li data-id="2">
+            <ul class="tiles easyClear">
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top1 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption">
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">
+                      <span class="append-margin"> 719,279条点评和建议 </span>
+                    </span>
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"潘多拉太远，张家界很近"</p>
+                      <span class="reviewInfo">来自:XXX</span>
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/zhangjiajie.jpg" class="photo_image" alt="" style="height: 221px; width: 368px; margin-top: 0px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">湖南</a> <a class="cityName" data-pid="39552" target="_blank" href="">张家界</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons">
+                      <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href="">
+                        <span class="stb blockIcon">游记</span>
+                      </a>
+                      <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href="">
+                        <span class="cityGuide blockIcon">指南</span> 
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="counts">
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 758</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 1271</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 2688</a></span> 
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top2 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption"> 
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">
+                      <span class="append-margin"> 1,235,263条点评和建议 </span>
+                    </span>
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"千年帝都，牡丹花城"</p>
+                      <span class="reviewInfo">来自:XXX</span>
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/luoyang.jpg" class="photo_image" alt="" style="height: 221px; width: 368px; margin-top: 0px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">河南</a> <a class="cityName" data-pid="39552" target="_blank" href="">洛阳</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons"> <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href=""> <span class="stb blockIcon">游记</span> </a> <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href=""> <span class="cityGuide blockIcon">指南</span> </a> </div>
+                  </div>
+                </div>
+                <div class="counts"> 
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 858</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 1766</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 10776</a></span> 
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top3 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption"> 
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">
+                      <span class="append-margin"> 349,359条点评和建议 </span> 
+                    </span>
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"东方芝加哥"</p>
+                      <span class="reviewInfo">来自:XXX</span>
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/wuhan.jpg" class="photo_image" alt="" style="height: 221px; width: 368px; margin-top: 0px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">湖北</a> <a class="cityName" data-pid="39552" target="_blank" href="">武汉</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons"> <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href=""> <span class="stb blockIcon">游记</span> </a> <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href=""> <span class="cityGuide blockIcon">指南</span> </a> </div>
+                  </div>
+                </div>
+                <div class="counts"> 
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 379</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 910</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 2056</a></span>
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top4 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption"> 
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">                   
+                      <span class="append-margin"> 818,226条点评和建议 </span> 
+                    </span> 
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"北平遥，南凤凰"</p>
+                      <span class="reviewInfo">来自:XXX</span>
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/fenghuang.jpg" class="photo_image" alt="" style="height: 221px; width: 368px; margin-top: 0px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">湖南</a> <a class="cityName" data-pid="39552" target="_blank" href="">凤凰古城</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons"> <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href=""> <span class="stb blockIcon">游记</span> </a> <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href=""> <span class="cityGuide blockIcon">指南</span> </a> </div>
+                  </div>
+                </div>
+                <div class="counts"> 
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 740</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 4608</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 90114</a></span> 
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top5 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption"> 
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">
+                      <span class="append-margin"> 275,203条点评和建议 </span> 
+                    </span> 
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"中国最美的乡村"</p>
+                      <span class="reviewInfo">来自:XXX</span>
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/wuyuan.jpg" class="photo_image" alt="" style="height: 221px; width: 368px; margin-top: 0px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">江西</a> <a class="cityName" data-pid="39552" target="_blank" href="">婺源</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons"> <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href=""> <span class="stb blockIcon">游记</span> </a> <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href=""> <span class="cityGuide blockIcon">指南</span> </a> </div>
+                  </div>
+                </div>
+                <div class="counts"> 
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 362</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 1721</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 12144</a></span> 
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top6 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption"> 
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">
+                      <span class="append-margin"> 114,419条点评和建议 </span> 
+                    </span> 
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"楚汉名城"</p>
+                      <span class="reviewInfo">来自:XXX</span>
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/changsha.jpg" class="photo_image" alt="" style="height: 276px; width: 368px; margin-top: -28px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">湖南</a> <a class="cityName" data-pid="39552" target="_blank" href="">长沙</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons"> <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href=""> <span class="stb blockIcon">游记</span> </a> <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href=""> <span class="cityGuide blockIcon">指南</span> </a> </div>
+                  </div>
+                </div>
+                <div class="counts"> 
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 197</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 287</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 501</a></span> 
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top7 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption"> 
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">
+                      <span class="append-margin"> 223,821条点评和建议 </span> 
+                    </span> 
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"华中屋脊"</p>
+                      <span class="reviewInfo">来自:XXX</span> 
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/shennongjia.jpg" class="photo_image" alt="" style="height: 276px; width: 368px; margin-top: -28px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">湖北</a> <a class="cityName" data-pid="39552" target="_blank" href="">神农架</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons"> <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href=""> <span class="stb blockIcon">游记</span> </a> <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href=""> <span class="cityGuide blockIcon">指南</span> </a> </div>
+                  </div>
+                </div>
+                <div class="counts"> 
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 291</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 1160</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 28282</a></span> 
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="caption">查看华中目的地</span> <span class="thumbCrop"> <img src="images/huazhong.jpg"> </span> </a>
+                <div class="geos"> 
+                  <span class="geo-item"> 
+                    <a class="item-country" data-pid="39552" target="_blank" href="">湖北省</a> 
+                    <a class="item-city" data-pid="39552" target="_blank" href="">宜昌</a> 
+                  </span> 
+                  <span class="geo-item"> 
+                    <a class="item-country" data-pid="39552" target="_blank" href="">河南省</a> 
+                    <a class="item-city" data-pid="39552" target="_blank" href="">嵩山</a> 
+                  </span> 
+                  <span class="geo-item"> 
+                    <a class="item-country" data-pid="39552" target="_blank" href="">湖北省</a> 
+                    <a class="item-city" data-pid="39552" target="_blank" href="">武当山</a> 
+                  </span> 
+                  <span class="geo-item"> 
+                    <a class="item-country" data-pid="39552" target="_blank" href="">江西省</a> 
+                    <a class="item-city" data-pid="39552" target="_blank" href="">庐山</a> 
+                  </span> 
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li data-id="3">
+            <ul class="tiles easyClear">
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top1 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption">
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">
+                      <span class="append-margin"> 719,279条点评和建议 </span>
+                    </span>
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"东方古都，长城故乡"</p>
+                      <span class="reviewInfo">来自:XXX</span>
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/beijing.jpg" class="photo_image" alt="" style="height: 221px; width: 368px; margin-top: 0px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">中国</a> <a class="cityName" data-pid="39552" target="_blank" href="">北京</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons">
+                      <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href="">
+                        <span class="stb blockIcon">游记</span>
+                      </a>
+                      <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href="">
+                        <span class="cityGuide blockIcon">指南</span> 
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="counts">
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 758</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 1271</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 2688</a></span> 
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top2 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption"> 
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">
+                      <span class="append-margin"> 1,235,263条点评和建议 </span>
+                    </span>
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"中国最美古城"</p>
+                      <span class="reviewInfo">来自:XXX</span>
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/pingyao.jpg" class="photo_image" alt="" style="height: 221px; width: 368px; margin-top: 0px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">山西</a> <a class="cityName" data-pid="39552" target="_blank" href="">平遥</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons"> <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href=""> <span class="stb blockIcon">游记</span> </a> <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href=""> <span class="cityGuide blockIcon">指南</span> </a> </div>
+                  </div>
+                </div>
+                <div class="counts"> 
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 858</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 1766</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 10776</a></span> 
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top3 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption"> 
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">
+                      <span class="append-margin"> 349,359条点评和建议 </span> 
+                    </span>
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"北方锁钥"</p>
+                      <span class="reviewInfo">来自:XXX</span>
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/datong.jpg" class="photo_image" alt="" style="height: 221px; width: 368px; margin-top: 0px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">山西</a> <a class="cityName" data-pid="39552" target="_blank" href="">大同</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons"> <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href=""> <span class="stb blockIcon">游记</span> </a> <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href=""> <span class="cityGuide blockIcon">指南</span> </a> </div>
+                  </div>
+                </div>
+                <div class="counts"> 
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 379</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 910</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 2056</a></span>
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top4 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption"> 
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">                   
+                      <span class="append-margin"> 818,226条点评和建议 </span> 
+                    </span> 
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"生态旅游"</p>
+                      <span class="reviewInfo">来自:XXX</span>
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/qinhuangdao.jpg" class="photo_image" alt="" style="height: 221px; width: 368px; margin-top: 0px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">河北</a> <a class="cityName" data-pid="39552" target="_blank" href="">秦皇岛</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons"> <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href=""> <span class="stb blockIcon">游记</span> </a> <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href=""> <span class="cityGuide blockIcon">指南</span> </a> </div>
+                  </div>
+                </div>
+                <div class="counts"> 
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 740</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 4608</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 90114</a></span> 
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top5 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption"> 
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">
+                      <span class="append-margin"> 275,203条点评和建议 </span> 
+                    </span> 
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"避暑圣地"</p>
+                      <span class="reviewInfo">来自:XXX</span>
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/chengde.jpg" class="photo_image" alt="" style="height: 221px; width: 368px; margin-top: 0px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">河北</a> <a class="cityName" data-pid="39552" target="_blank" href="">承德</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons"> <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href=""> <span class="stb blockIcon">游记</span> </a> <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href=""> <span class="cityGuide blockIcon">指南</span> </a> </div>
+                  </div>
+                </div>
+                <div class="counts"> 
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 362</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 1721</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 12144</a></span> 
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top6 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption"> 
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">
+                      <span class="append-margin"> 114,419条点评和建议 </span> 
+                    </span> 
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"成吉思汗陵"</p>
+                      <span class="reviewInfo">来自:XXX</span>
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/eerduosi.jpg" class="photo_image" alt="" style="height: 276px; width: 368px; margin-top: -28px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">内蒙古</a> <a class="cityName" data-pid="39552" target="_blank" href="">鄂尔多斯</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons"> <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href=""> <span class="stb blockIcon">游记</span> </a> <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href=""> <span class="cityGuide blockIcon">指南</span> </a> </div>
+                  </div>
+                </div>
+                <div class="counts"> 
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 197</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 287</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 501</a></span> 
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top7 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption"> 
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">
+                      <span class="append-margin"> 223,821条点评和建议 </span> 
+                    </span> 
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"天津之眼"</p>
+                      <span class="reviewInfo">来自:XXX</span> 
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/tianjin.jpg" class="photo_image" alt="" style="height: 276px; width: 368px; margin-top: -28px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">中国</a> <a class="cityName" data-pid="39552" target="_blank" href="">天津</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons"> <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href=""> <span class="stb blockIcon">游记</span> </a> <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href=""> <span class="cityGuide blockIcon">指南</span> </a> </div>
+                  </div>
+                </div>
+                <div class="counts"> 
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 291</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 1160</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 28282</a></span> 
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="caption">查看华北目的地</span> <span class="thumbCrop"> <img src="images/huabei.jpg"> </span> </a>
+                <div class="geos"> 
+                  <span class="geo-item"> 
+                    <a class="item-country" data-pid="39552" target="_blank" href="">山西省</a> 
+                    <a class="item-city" data-pid="39552" target="_blank" href="">五台山</a> 
+                  </span> 
+                  <span class="geo-item"> 
+                    <a class="item-country" data-pid="39552" target="_blank" href="">山西省</a> 
+                    <a class="item-city" data-pid="39552" target="_blank" href="">太原</a> 
+                  </span> 
+                  <span class="geo-item"> 
+                    <a class="item-country" data-pid="39552" target="_blank" href="">内蒙古</a> 
+                    <a class="item-city" data-pid="39552" target="_blank" href="">呼和浩特</a> 
+                  </span> 
+                  <span class="geo-item"> 
+                    <a class="item-country" data-pid="39552" target="_blank" href="">河北省</a> 
+                    <a class="item-city" data-pid="39552" target="_blank" href="">石家庄</a> 
+                  </span> 
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li data-id="4">
+            <ul class="tiles easyClear">
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top1 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption">
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">
+                      <span class="append-margin"> 719,279条点评和建议 </span>
+                    </span>
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"上有天堂，下有苏杭"</p>
+                      <span class="reviewInfo">来自:XXX</span>
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/hangzhou.jpg" class="photo_image" alt="" style="height: 221px; width: 368px; margin-top: 0px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">浙江</a> <a class="cityName" data-pid="39552" target="_blank" href="">杭州</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons">
+                      <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href="">
+                        <span class="stb blockIcon">游记</span>
+                      </a>
+                      <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href="">
+                        <span class="cityGuide blockIcon">指南</span> 
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="counts">
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 758</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 1271</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 2688</a></span> 
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top2 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption"> 
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">
+                      <span class="append-margin"> 1,235,263条点评和建议 </span>
+                    </span>
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"东方水都"</p>
+                      <span class="reviewInfo">来自:XXX</span>
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/suzhou.jpg" class="photo_image" alt="" style="height: 221px; width: 368px; margin-top: 0px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">江苏</a> <a class="cityName" data-pid="39552" target="_blank" href="">苏州</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons"> <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href=""> <span class="stb blockIcon">游记</span> </a> <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href=""> <span class="cityGuide blockIcon">指南</span> </a> </div>
+                  </div>
+                </div>
+                <div class="counts"> 
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 858</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 1766</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 10776</a></span> 
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top3 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption"> 
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">
+                      <span class="append-margin"> 349,359条点评和建议 </span> 
+                    </span>
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"五岳之首"</p>
+                      <span class="reviewInfo">来自:XXX</span>
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/taishan.jpg" class="photo_image" alt="" style="height: 221px; width: 368px; margin-top: 0px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">山东</a> <a class="cityName" data-pid="39552" target="_blank" href="">泰山</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons"> <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href=""> <span class="stb blockIcon">游记</span> </a> <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href=""> <span class="cityGuide blockIcon">指南</span> </a> </div>
+                  </div>
+                </div>
+                <div class="counts"> 
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 379</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 910</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 2056</a></span>
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top4 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption"> 
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">                   
+                      <span class="append-margin"> 818,226条点评和建议 </span> 
+                    </span> 
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"东方巴黎"</p>
+                      <span class="reviewInfo">来自:XXX</span>
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/shanghai.jpg" class="photo_image" alt="" style="height: 221px; width: 368px; margin-top: 0px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">中国</a> <a class="cityName" data-pid="39552" target="_blank" href="">上海</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons"> <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href=""> <span class="stb blockIcon">游记</span> </a> <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href=""> <span class="cityGuide blockIcon">指南</span> </a> </div>
+                  </div>
+                </div>
+                <div class="counts"> 
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 740</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 4608</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 90114</a></span> 
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top5 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption"> 
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">
+                      <span class="append-margin"> 275,203条点评和建议 </span> 
+                    </span> 
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"来厦门必去鼓浪屿"</p>
+                      <span class="reviewInfo">来自:XXX</span>
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/xiamen.jpg" class="photo_image" alt="" style="height: 221px; width: 368px; margin-top: 0px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">福建</a> <a class="cityName" data-pid="39552" target="_blank" href="">厦门</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons"> <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href=""> <span class="stb blockIcon">游记</span> </a> <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href=""> <span class="cityGuide blockIcon">指南</span> </a> </div>
+                  </div>
+                </div>
+                <div class="counts"> 
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 362</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 1721</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 12144</a></span> 
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top6 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption"> 
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">
+                      <span class="append-margin"> 114,419条点评和建议 </span> 
+                    </span> 
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"鱼米之乡"</p>
+                      <span class="reviewInfo">来自:XXX</span>
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/jiaxing.jpg" class="photo_image" alt="" style="height: 276px; width: 368px; margin-top: -28px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">浙江</a> <a class="cityName" data-pid="39552" target="_blank" href="">嘉兴</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons"> <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href=""> <span class="stb blockIcon">游记</span> </a> <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href=""> <span class="cityGuide blockIcon">指南</span> </a> </div>
+                  </div>
+                </div>
+                <div class="counts"> 
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 197</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 287</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 501</a></span> 
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top7 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption"> 
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">
+                      <span class="append-margin"> 223,821条点评和建议 </span> 
+                    </span> 
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"奇松、怪石、云海、温泉"</p>
+                      <span class="reviewInfo">来自:XXX</span> 
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/huangshan.jpg" class="photo_image" alt="" style="height: 276px; width: 368px; margin-top: -28px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">安徽</a> <a class="cityName" data-pid="39552" target="_blank" href="">黄山</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons"> <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href=""> <span class="stb blockIcon">游记</span> </a> <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href=""> <span class="cityGuide blockIcon">指南</span> </a> </div>
+                  </div>
+                </div>
+                <div class="counts"> 
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 291</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 1160</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 28282</a></span> 
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="caption">查看华东目的地</span> <span class="thumbCrop"> <img src="images/huadong.jpg"> </span> </a>
+                <div class="geos"> 
+                  <span class="geo-item"> 
+                    <a class="item-country" data-pid="39552" target="_blank" href="">山东省</a> 
+                    <a class="item-city" data-pid="39552" target="_blank" href="">青岛</a> 
+                  </span> 
+                  <span class="geo-item"> 
+                    <a class="item-country" data-pid="39552" target="_blank" href="">江苏省</a> 
+                    <a class="item-city" data-pid="39552" target="_blank" href="">南京</a> 
+                  </span> 
+                  <span class="geo-item"> 
+                    <a class="item-country" data-pid="39552" target="_blank" href="">中国</a> 
+                    <a class="item-city" data-pid="39552" target="_blank" href="">台湾</a> 
+                  </span> 
+                  <span class="geo-item"> 
+                    <a class="item-country" data-pid="39552" target="_blank" href="">江苏省</a> 
+                    <a class="item-city" data-pid="39552" target="_blank" href="">扬州</a> 
+                  </span> 
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li data-id="5">
+            <ul class="tiles easyClear">
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top1 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption">
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">
+                      <span class="append-margin"> 719,279条点评和建议 </span>
+                    </span>
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"天涯海角"</p>
+                      <span class="reviewInfo">来自:XXX</span>
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/sanya.jpg" class="photo_image" alt="" style="height: 221px; width: 368px; margin-top: 0px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">海南</a> <a class="cityName" data-pid="39552" target="_blank" href="">三亚</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons">
+                      <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href="">
+                        <span class="stb blockIcon">游记</span>
+                      </a>
+                      <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href="">
+                        <span class="cityGuide blockIcon">指南</span> 
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="counts">
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 758</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 1271</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 2688</a></span> 
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top2 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption"> 
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">
+                      <span class="append-margin"> 1,235,263条点评和建议 </span>
+                    </span>
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"桂林山水甲天下"</p>
+                      <span class="reviewInfo">来自:XXX</span>
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/guilin.jpg" class="photo_image" alt="" style="height: 221px; width: 368px; margin-top: 0px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">广西</a> <a class="cityName" data-pid="39552" target="_blank" href="">桂林</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons"> <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href=""> <span class="stb blockIcon">游记</span> </a> <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href=""> <span class="cityGuide blockIcon">指南</span> </a> </div>
+                  </div>
+                </div>
+                <div class="counts"> 
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 858</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 1766</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 10776</a></span> 
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top3 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption">
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">
+                      <span class="append-margin"> 719,279条点评和建议 </span>
+                    </span>
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"潘多拉太远，张家界很近"</p>
+                      <span class="reviewInfo">来自:XXX</span>
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/zhangjiajie.jpg" class="photo_image" alt="" style="height: 221px; width: 368px; margin-top: 0px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">湖南</a> <a class="cityName" data-pid="39552" target="_blank" href="">张家界</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons">
+                      <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href="">
+                        <span class="stb blockIcon">游记</span>
+                      </a>
+                      <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href="">
+                        <span class="cityGuide blockIcon">指南</span> 
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="counts">
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 758</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 1271</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 2688</a></span> 
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top4 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption">
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">
+                      <span class="append-margin"> 719,279条点评和建议 </span>
+                    </span>
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"东方古都，长城故乡"</p>
+                      <span class="reviewInfo">来自:XXX</span>
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/beijing.jpg" class="photo_image" alt="" style="height: 221px; width: 368px; margin-top: 0px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">中国</a> <a class="cityName" data-pid="39552" target="_blank" href="">北京</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons">
+                      <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href="">
+                        <span class="stb blockIcon">游记</span>
+                      </a>
+                      <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href="">
+                        <span class="cityGuide blockIcon">指南</span> 
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="counts">
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 758</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 1271</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 2688</a></span> 
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top5 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption">
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">
+                      <span class="append-margin"> 719,279条点评和建议 </span>
+                    </span>
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"上有天堂，下有苏杭"</p>
+                      <span class="reviewInfo">来自:XXX</span>
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/hangzhou.jpg" class="photo_image" alt="" style="height: 221px; width: 368px; margin-top: 0px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">浙江</a> <a class="cityName" data-pid="39552" target="_blank" href="">杭州</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons">
+                      <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href="">
+                        <span class="stb blockIcon">游记</span>
+                      </a>
+                      <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href="">
+                        <span class="cityGuide blockIcon">指南</span> 
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="counts">
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 758</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 1271</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 2688</a></span> 
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top6 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption"> 
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">
+                      <span class="append-margin"> 1,235,263条点评和建议 </span>
+                    </span>
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"东方水都"</p>
+                      <span class="reviewInfo">来自:XXX</span>
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/suzhou.jpg" class="photo_image" alt="" style="height: 221px; width: 368px; margin-top: 0px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">江苏</a> <a class="cityName" data-pid="39552" target="_blank" href="">苏州</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons"> <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href=""> <span class="stb blockIcon">游记</span> </a> <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href=""> <span class="cityGuide blockIcon">指南</span> </a> </div>
+                  </div>
+                </div>
+                <div class="counts"> 
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 858</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 1766</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 10776</a></span> 
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="ranking "> Top7 </span>
+                <div class="reviews">
+                  <div class="reviewBox"> 
+                    <span class="reviewCaption"> 
+                      <img width="18" src="images/portrait_1.jpg">
+                      <img width="18" src="images/portrait_2.jpg">
+                      <img width="18" src="images/portrait_3.jpg">
+                      <img width="18" src="images/portrait_4.jpg">
+                      <span class="append-margin"> 349,359条点评和建议 </span> 
+                    </span>
+                    <span class="reviewFigure">
+                      <p class="reviewTitle">"五岳之首"</p>
+                      <span class="reviewInfo">来自:XXX</span>
+                    </span> 
+                  </div>
+                </div>
+                <span class="thumbCrop"> <img src="images/taishan.jpg" class="photo_image" alt="" style="height: 221px; width: 368px; margin-top: 0px;" height="220" width="368"> </span> </a>
+                <div class="title"> <a class="countryName" data-pid="39552" target="_blank" href="">山东</a> <a class="cityName" data-pid="39552" target="_blank" href="">泰山</a>
+                  <div class="wrap-popIcons">
+                    <div class="popIcons"> <a class="wrap-stb wrap-icon" target="_blank" data-pid="38205" alt="游记" href=""> <span class="stb blockIcon">游记</span> </a> <a class="wrap-cityGuide wrap-icon" target="_blank" data-pid="39210" alt="指南" href=""> <span class="cityGuide blockIcon">指南</span> </a> </div>
+                  </div>
+                </div>
+                <div class="counts"> 
+                  <span class="hotelsCount"><a target="_blank" onclick="setPID(39552)" href="">酒店 379</a></span> 
+                  <span class="attractionCount"><a target="_blank" onclick="setPID(39552)" href="">景点 910</a></span> 
+                  <span class="eateryCount"><a target="_blank" onclick="setPID(39552)" href="">餐厅 2056</a></span>
+                </div>
+              </li>
+              <li> <a class="thumb" data-pid="39552" target="_blank" href=""> <span class="caption">查看全国目的地</span> <span class="thumbCrop"> <img src="images/quanguo.jpg"> </span> </a>
+                <div class="geos"> 
+                  <span class="geo-item"> 
+                    <a class="item-country" data-pid="39552" target="_blank" href="">云南省</a> 
+                    <a class="item-city" data-pid="39552" target="_blank" href="">丽江</a> 
+                  </span> 
+                  <span class="geo-item"> 
+                    <a class="item-country" data-pid="39552" target="_blank" href="">西藏</a> 
+                    <a class="item-city" data-pid="39552" target="_blank" href="">拉萨</a> 
+                  </span> 
+                  <span class="geo-item"> 
+                    <a class="item-country" data-pid="39552" target="_blank" href="">新疆</a> 
+                    <a class="item-city" data-pid="39552" target="_blank" href="">天山山</a> 
+                  </span> 
+                  <span class="geo-item"> 
+                    <a class="item-country" data-pid="39552" target="_blank" href="">四川省</a> 
+                    <a class="item-city" data-pid="39552" target="_blank" href="">九寨沟</a> 
+                  </span> 
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <div id="destEntry" class="dest-entry"> 
+      <a class="show-entry" href="##">
+        <h2>查看全部目的地 &gt;</h2>
+      </a> 
+    </div>
+	<script type="text/javascript">
+      $(function(){
+		  $('.regionTabs li').bind('click', function(){
+			$(this).addClass('active').siblings().removeClass('active');
+			var index=$(this).attr('data-id');
+			$('.regionContent').children().eq(index-1).addClass('active');
+			$('.regionContent').children().not($('.regionContent').children().eq(index-1)).removeClass('active');
+		  });
+        });
+    </script>
+  </section>
+  
+  <section class="content_center">
+    <div class="content">
+      <!-- 焦点图开始 -->
+      <div class="main_visual main_visual2 float_left">
+        <div class="flicking_con flicking_con2">
+          <a href="#">1</a>
+          <a href="#">2</a>
+          <a href="#">3</a>
+          <a href="#">4</a>
+          <a href="#">5</a>
+        </div>
+        <div class="main_image main_image2">
+          <ul>
+            <li><span class="img_6"></span></li>
+            <li><span class="img_7"></span></li>
+            <li><span class="img_8"></span></li>
+            <li><span class="img_9"></span></li>
+            <li><span class="img_10"></span></li>
+          </ul>
+          <a href="javascript:;" id="btn_prev2"></a>
+          <a href="javascript:;" id="btn_next2"></a>
+        </div>
+      </div>
+      <!-- 焦点图结束 -->
+      <div id="Tab">
+        <div class="Menubox">
+          <ul>
+            <li id="menu1"class="hover">旅游快讯</li>
+            <li id="menu2">优惠活动</li>
+          </ul>
+        </div>
+        <div class="Contentbox">
+          <div id="con_menu_1" class="hover">
+            <ul>
+              <li>·<a href="news_01.html">2015大连发现王国成人年卡团购只需226元</a></li>
+              <li>·<a href="">2015星海广场大连啤酒节 等你来狂欢</a></li>
+              <li>·<a href="">7月27日-8月16日老虎滩表演活动时间安排</a></li>
+              <li>·<a href="">2015大连金石滩活动 蓝莓谷油画展和动漫水世界</a></li>
+              <li>·<a href="">2015大连8月1日金石滩狩猎场露营活动报名</a></li>
+              <li>·<a href="">大连金石滩2015暑假特别优惠活动</a></li>
+              <li>·<a href="">2015大连国际沙滩文化节游戏有奖活动</a></li>
+              <li>·<a href="">发现王国2013精彩活动2014全新绽放</a></li>
+            </ul>
+          </div>
+          <div id="con_menu_2" style="display:none">
+            <ul>
+              <li>·<a href="youhui_01.html">2015大连发现王国9月门票优惠活动(9.1-9.6)</a></li>
+              <li>·<a href="">大连樱桃采摘,农家饭,西郊森林公园一日游</a></li>
+              <li>·<a href="">大连大长山岛二日休闲游</a></li>
+              <li>·<a href="">大连铭湖温泉二日游</a></li>
+              <li>·<a href="">大连冰峪沟 歇马山温泉二日游（住歇马山）</a></li>
+              <li>·<a href="">2015大连发现王国9月门票优惠活动(9.1-9.6)</a></li>
+              <li>·<a href="">大连歇马山庄森林浴、温泉一日游</a></li>
+              <li>·<a href="">大连旅顺纯玩一日游</a></li>
+            </ul>
+          </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+  </section>
+  
+  <footer>
+    <div class="foot">
+      <div class="my">
+        <span><a href="#">热门旅游目的地</a>：</span>
+        <span><a href="#">美国旅游</a> | </span>
+        <span><a href="#">英国旅游</a> | </span>
+        <span><a href="#">瑞士旅游</a> | </span>
+        <span><a href="#">瑞士旅游</a> | </span>
+        <span><a href="#">加拿大旅游</a> | </span>
+        <span><a href="#">新西兰</a> | </span>
+        <span><a href="#">意大利</a></span>
+      </div>
+      <div class="my">
+        <span><a href="#">热门旅游景点</a>：</span>
+        <span><a href="#">黄金海岸</a> | </span>
+        <span><a href="#">黄石国家公园</a> | </span>
+        <span><a href="#">大峡谷</a> | </span>
+        <span><a href="#">迪士尼乐园</a> | </span>
+        <span><a href="#">棕榈泉</a> | </span>
+        <span><a href="#">加州环球影城</a> | </span>
+        <span><a href="#">珍珠港</a></span>
+      </div>
+      <div class="my">
+        <span><a href="#">热门游轮航线</a>：</span>
+        <span><a href="#">加勒比海及巴哈马航线</a> | </span>
+        <span><a href="#">阿拉斯加航线</a> | </span>
+        <span><a href="#">墨西哥航线</a> | </span>
+        <span><a href="#">地中海航线</a>| </span>
+        <span><a href="#">夏威夷航线</a></span>
+      </div>
+      <div class="my">
+        <span><a href="#">热门搜索</a>：</span>
+        <span><a href="#">罗马豪华游</a>| </span>
+        <span><a href="#">布拉格旅游攻略</a>| </span>
+        <span><a href="#">墨尔本景点门票</a>| </span>
+        <span><a href="#">雷诺一日游</a>| </span>
+        <span><a href="#">奥克兰旅游指南</a>| </span>
+        <span><a href="#">圣地亚哥旅游攻略</a>| </span>
+        <span><a href="#">墨西哥旅游行程</a>| </span>
+        <span><a href="#">威尼斯旅游价格</a>| </span>
+        <span><a href="#">爱丁堡特价旅游</a></span>
+      </div>
+      <div class="copyright_info">
+        <div>最终解释权归<a href="#">©WorldTravel</a>所有.</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

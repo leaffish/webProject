@@ -1,0 +1,171 @@
+/* top section */
+.top_links {
+	width: 1170px;
+	height: 50px;
+	background-color: #fff;
+	font-size: .75em;
+	color: #000;
+	margin: 0 auto;
+}
+.top_links .contact_info {
+	font-size: .75em;
+	padding: 0px;
+	margin: 18px 0;
+	float: right;
+}
+.top_links .contact_info ul {
+	padding: 0px;
+	margin: 0px;
+	float: left;
+}
+.top_links .contact_info li {
+	padding: 0 8px;
+	margin: 0;
+	float: left;
+	border-left:1px solid #999;
+}
+.top_links .contact_info li a {
+	padding: 0px;
+	margin: 0px;
+	float: left;
+}
+.top_links .contact_info li a:hover {
+	color: #33c92b;
+}
+#wechat,#microblog {
+	float:left;
+	width:18px;
+	height:14px;
+	margin: 0 2px;
+	background:url(../images/mini-icon.png);
+}
+#wechat{
+	background-position:-100px 0;
+}
+#wechat:hover{
+	background-position:-150px 0;
+}
+#microblog:hover{
+	background-position:-50px 0;
+}
+.top-left{
+	float:left;
+}
+#top-title{
+	width:295px;
+	height:40px;
+	margin:5px;
+	background:url(../images/title.jpg);
+}
+/* 导航条样式 */
+.topbar {
+	height: 42px;
+	line-height: 42px;
+	color: #777;
+	background-color: #1E90FF;
+	font-size: 14px;
+	font-weight: bold;
+}
+.publicNav_nav {
+	height: 42px;
+	width: 1170px;
+	margin: 0 auto;
+	position: relative;
+	z-index: 8;
+}
+.publicNav_nav p {
+	float: left;
+	display: inline;
+	position: relative;
+	text-align: center;
+	height: 42px;
+	padding: 0 20px;
+	z-index: 10
+}
+.publicNav_nav p a {
+	padding: 2px 20px;
+	font: bold 16px/36px Microsoft Yahei;
+	color: #fff;
+}
+.publicNav_nav p a:hover {
+	text-decoration: none;
+}
+.publicNavHover {
+	position: absolute;
+	height: 42px;
+	background: #4682B4;
+	overflow: hidden;
+	z-index: 9
+}
+
+.searchBar {
+	height: 50px;
+	line-height: 42px;
+	color: #777;
+	background-color: #1E90FF;
+	font-size: 14px;
+	font-weight: bold;
+}
+.searchingBar {
+	height: 42px;
+	width: 1170px;
+	margin: 0 auto;
+	position: relative;
+	padding:5px;
+}
+
+.searchingBar div{
+	width:60px;
+	color: #4a4a4a;
+	line-height:38px;
+	text-align:center;
+    font-size: 16px;
+	background-color:#fff;
+}
+.mainSearch1{
+	position:absolute;
+	width:495px;
+	bottom:9px;
+	left:60px;
+	border:0px;
+	height:38px;
+}
+.secondDiv{
+	position:absolute;
+	left:560px;
+	width:60px;
+	bottom:9px;
+	height:38px;
+}
+.mainSearch2{
+	position:absolute;
+	width:495px;
+	bottom:9px;
+	left:615px;
+	border:0px;
+	height:38px;
+}
+.searchButton{
+	position:absolute;
+	left:1115px;
+	bottom:7px;
+	float:right;
+	height:42px;
+	width:75px;
+	background-color:#ddd;
+	border-radius:5px;
+}
+.searchButton_icon{
+	display:inline-block;
+	margin-right: 3px;
+    line-height: 38px;
+    vertical-align: middle;
+    font-size: 18px;
+    min-width: 18px;
+    width: 18px;
+	height:21px;
+	background:url(../images/searchButton_icon.png) no-repeat;
+	background-position:-50px;
+}
+
+	

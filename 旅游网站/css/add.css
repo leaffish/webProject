@@ -1,0 +1,27 @@
+/* 后续添加的样式*/
+@charset "utf-8";
+
+.sidebar{
+	border-radius:15px 15px 0 0;
+}
+
+.content_center{
+	position:relative;
+	text-align: left;
+    width: 1170px;
+    margin: 0 auto;
+}
+
+.content{
+	margin:20px auto 20px auto;
+	text-align:left;
+	height:270px;
+	width:100%;
+}
+
+.float_left{
+	float: left;
+	width:66%;
+	margin-top: 0;
+	height: 280px;
+}

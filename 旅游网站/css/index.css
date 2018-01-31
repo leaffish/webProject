@@ -1,0 +1,108 @@
+/* 为了让ie浏览器居中显示内容 */
+@charset "utf-8";
+* {
+	margin: 0;
+	padding: 0
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	text-align: center;
+	background-color:#eee;
+}
+header {
+	background-color:#fff;
+}
+header article section footer nav aside{
+	display:block;
+}
+button, input, select, textarea {
+	font-family: "微软雅黑", Arial;
+	line-height: 24px;
+	color: #666;
+	font-size: 13px;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+img {
+	border: 0;
+	line-height: 0;
+}
+em, b, i {
+	font-style: normal;
+	font-weight: 400;
+}
+dl, ul, li {
+	list-style: none
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	font-weight: 500
+}
+a {
+	outline: 0;
+}
+a, a:visited {
+	color: #666;
+	text-decoration: none;
+}
+a:hover {
+	color: #2fa1e7;
+	text-decoration: none;
+}
+.fleft {
+	float: left;
+}
+.fright {
+	float: right;
+}
+.fr {
+	float: right;
+}
+.fl {
+	float: left;
+}
+.clear {
+	clear: both;
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+	width: 0;
+	height: 0;
+	font-size: 0;
+	line-height: 0;
+}
+.clearfix:before, .clearfix:after {
+	content: '.';
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+	font-size: 0;
+	line-height: 0;
+	width: 0;
+	height: 0
+}
+input:focus, select:focus, textarea:focus, area {
+	outline: none;
+}
+.transition {
+	transition: all .2s linear;
+	-webkit-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+}
+.overflow {
+	overflow: hidden;
+}
+.main {
+	text-align: left;
+	width: 1170px;
+	margin: 0 auto;
+}
+.container {
+	width: 1170px;
+	margin:auto auto auto auto;
+}
