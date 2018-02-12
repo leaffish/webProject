@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>css3广告轮播</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#main{
+			width: 948px;
+			height: 260px;
+			position: relative;
+			border: 5px solid #000;
+			margin: 30px auto;
+		}
+		.tabs{
+			display: none;
+		}
+		.bg{
+			width: 261px;
+			height: 65px;
+			position: absolute;
+			background: #414141;
+			opacity: 0.8;
+			right: 0;
+		}
+		.bg dl{
+			padding: 12px 15px;
+		}
+		.bg dl dt{
+			width: 40px;
+			height: 48px;
+			float: left;
+			padding-right: 15px;
+		}
+		.bg dl dd.title{
+			font-size: 14px;
+			color: #fff;
+		}
+		.bg dl dd{
+			font-family: "微软雅黑";
+			color: #E3E3E3;
+			font-size: 12px;
+			line-height: 20px;
+		}
+		.bg1{
+			top: 0;
+		}
+		.bg2{
+			top: 65px;
+		}
+		.bg3{
+			top: 130px;
+		}
+		.bg4{
+			top: 195px;
+		}
+		.photo{
+			display: block;
+			transition: all 0.5s ease;
+			-moz-transition-property: all 0.5s ease; /* Firefox 4 */
+			-webkit-transition-property: all 0.5s ease; /* Safari 和 Chrome */
+			-o-transition-property: all 0.5s ease; /* Opera */
+			height: 0;
+		}
+		input.tabs:checked + label dl{
+			background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.65), transparent);
+			background: -webkit-linear-gradient(left top, rgba(0, 0, 0, 0.65), transparent); /* Safari 5.1 - 6.0 */
+			background: -o-linear-gradient(bottom right, rgba(0, 0, 0, 0.65), transparent); /* Opera 11.1 - 12.0 */
+			background: -moz-linear-gradient(bottom right, rgba(0, 0, 0, 0.65), transparent); /* Firefox 3.6 - 15 */
+			
+		}
+		/*点击相应的单选框相应图片按照高度过渡出现*/
+		input#tab1:checked ~ #img1{ height: 260px; }
+		input#tab2:checked ~ #img2{ height: 260px; }
+		input#tab3:checked ~ #img3{ height: 260px; }
+		input#tab4:checked ~ #img4{ height: 260px; }
+	</style>
+</head>
+<body>
+	<div id="main">
+		<input type="radio" name="tab" id="tab1" class="tabs" checked="checked">
+		<label for="tab1">
+			<div class="bg bg1">
+				<dl id="dl1">
+					<dt><img src="images/but1.png" width="40px"></dt>
+					<dd class="title">精心挑选，倾情推荐</dd>
+					<dd>推荐精品应用，享受多彩上网</dd>
+				</dl>
+			</div>
+		</label>
+		<input type="radio" name="tab" id="tab2" class="tabs">
+		<label for="tab2">
+			<div class="bg bg2">
+				<dl id="dl2">
+					<dt><img src="images/but2.png" width="40px"></dt>
+					<dd class="title">精心挑选，倾情推荐</dd>
+					<dd>推荐精品应用，享受多彩上网</dd>
+				</dl>
+			</div>
+		</label>
+		<input type="radio" name="tab" id="tab3" class="tabs">
+		<label for="tab3">
+			<div class="bg bg3">
+				<dl id="dl3">
+					<dt><img src="images/but3.png" width="40px"></dt>
+					<dd class="title">精心挑选，倾情推荐</dd>
+					<dd>推荐精品应用，享受多彩上网</dd>
+				</dl>
+			</div>
+		</label>
+		<input type="radio" name="tab" id="tab4" class="tabs">
+		<label for="tab4">
+			<div class="bg bg4">
+				<dl id="dl4">
+					<dt><img src="images/but4.png" width="40px"></dt>
+					<dd class="title">精心挑选，倾情推荐</dd>
+					<dd>推荐精品应用，享受多彩上网</dd>
+				</dl>
+			</div>
+		</label>
+		<img src="images/1.png" class="photo" alt="" id="img1">
+		<img src="images/2.png" class="photo" alt="" id="img2">
+		<img src="images/3.png" class="photo" alt="" id="img3">
+		<img src="images/4.png" class="photo" alt="" id="img4">
+	</div>
+</body>
+</html>

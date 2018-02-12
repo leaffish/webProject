@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>3D图片轮播图切换</title>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.box{
+		margin-top: 100px;
+		width: 100%;
+		height: 340px;
+		position: relative;
+	}
+	.list{
+		width:1200px;
+		height:339px;
+		overflow: hidden;
+		position: absolute;
+		left: 50%;
+		margin-left: -600px;
+	}
+	.list li{
+		position: absolute;
+		list-style: none;
+		opacity: 0;
+		transition: all 0.3s ease-out;
+	}
+	.box .p1{
+		transform:translate3d(-234px,0,0) scale(0.8);
+	}
+	.box .p2{
+		transform:translate3d(0px,0,0) scale(0.8);
+		transform-origin:0 50%;
+		z-index: 2;
+		opacity: 0.8;
+	}
+	.box .p3{
+		transform:translate3d(234px,0,0) scale(1);
+		z-index: 3;
+		opacity: 1;
+	}
+	.box .p4{
+		transform:translate3d(469px,0,0) scale(0.8);
+		transform-origin:100% 50%;
+		z-index: 2;
+		opacity: 0.8;
+	}
+	.box .p5{
+		transform:translate3d(703px,0,0) scale(0.8);
+	}
+	.box .p6{
+		transform:translate3d(938px,0,0) scale(0.8);
+	}
+	.box .p7{
+		transform:translate3d(1172px,0,0) scale(0.8);
+	}
+	.box .p8{
+		transform:translate3d(1407px,0,0) scale(0.8);
+	}
+	.prev{
+		left:0;
+	}
+	.next{
+		right:0;
+	}
+	.btn{
+		position: absolute;
+		width: 50px;
+		height: 80px;
+		line-height: 80px;
+		top: 50%;
+		margin-top: -40px;
+		font-size: 50px;
+		font-weight: bolder;
+		color: black;
+		text-align: center;
+		text-decoration: none;
+		background: rgba(255,0,0,0.5);
+		cursor: pointer;
+	}
+	.buttons{
+		position: absolute;
+		width: 1200px;
+		height: 30px;
+		bottom: 0;
+		left: 50%;
+		margin-left: -600px;
+		text-align: center;
+		z-index: 4;
+		
+	}
+	.buttons a{
+		display: inline-block;
+		width: 16px;
+		height: 16px;
+		padding-left:10px;
+		cursor: pointer;		
+	}
+	.span1{
+		display: block;
+		width: 16px;
+		height: 16px;
+		border-radius: 16px;
+		background: rgba(255,0,0,0.5);
+		text-align: center;
+		line-height: 14px;
+	}
+	.span1 span{
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+		border-radius: 10px;
+		background-color: white;
+	}
+	.span1 .onpress{
+		background: rgba(0,0,0,0.3);
+	}
+	</style>
+</head>
+<body>
+<div class="box">
+	<div class="list">
+		<ul>
+			<li class="p8"><a href="#"><img src="img/01.jpg" alt="..."></a></li>
+			<li class="p7"><a href="#"><img src="img/02.jpg" alt="..."></a></li>
+			<li class="p6"><a href="#"><img src="img/03.jpg" alt="..."></a></li>
+			<li class="p5"><a href="#"><img src="img/04.jpg" alt="..."></a></li>
+			<li class="p4"><a href="#"><img src="img/05.jpg" alt="..."></a></li>
+			<li class="p3"><a href="#"><img src="img/06.jpg" alt="..."></a></li>
+			<li class="p2"><a href="#"><img src="img/07.jpg" alt="..."></a></li>
+			<li class="p1"><a href="#"><img src="img/08.jpg" alt="..."></a></li>
+		</ul>
+	</div>
+	<a href="javascript:;" class="btn prev">&lt;</a>
+	<a href="javascript:;" class="btn next">&gt;</a>
+	<div class="buttons">
+		<a href="javascript:;"><span class="span1"><span></span></span></a>
+		<a href="javascript:;"><span class="span1"><span></span></span></a>
+		<a href="javascript:;"><span class="span1"><span class="onpress"></span></span></a>
+		<a href="javascript:;"><span class="span1"><span></span></span></a>
+		<a href="javascript:;"><span class="span1"><span></span></span></a>
+		<a href="javascript:;"><span class="span1"><span></span></span></a>
+		<a href="javascript:;"><span class="span1"><span></span></span></a>
+		<a href="javascript:;"><span class="span1"><span></span></span></a>
+	</div>
+</div>
+
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">
+		var button = $(".buttons a");
+		var buttonColor = $(".span1 span");
+		var imgArr = ["p8","p7","p6","p5","p4","p3","p2","p1"];
+		var index = 2;
+		
+		$(".prev").click(
+			function(){
+				previmg();
+			}
+		)
+		$(".next").click(
+			function(){
+				nextimg();
+			}
+		)
+
+		//上一张
+		function previmg(){
+			imgArr.unshift(imgArr[7]);
+			imgArr.pop();
+			//i是元素的索引，从0零开始
+			//e为当前处理的元素
+			//each循环，当前处理的元素移除所有的class，然后添加数组索引i的class
+			$(".list li").each(function(i,e){
+				$(e).removeClass().addClass(imgArr[i]);
+			})
+			index--;
+			if(index < 0){
+				index = 7;
+			}
+			show();
+		}
+		//下一张
+		function nextimg(){
+			imgArr.push(imgArr[0]);
+			imgArr.shift();
+			$(".list li").each(function(i,e){
+				$(e).removeClass().addClass(imgArr[i]);
+			})
+			index++;
+			if(index > 7){
+				index = 0;
+			}
+			show();
+		}
+
+		//底栏按钮颜色变换
+		function show(){
+			buttonColor.eq(index).addClass("onpress").parent().parent().siblings().children().children().removeClass("onpress");
+		}
+
+		// 底栏按钮切换
+		button.each(function(){
+			$(this).click(function(){
+				var myindex = $(this).index();
+				var b = myindex - index;
+				if(b == 0){
+					return;
+				}
+				else if(b>0){
+					var newarr = imgArr.splice(0,b);
+					imgArr = $.merge(imgArr,newarr);
+					$(".list li").each(function(i,e){
+						$(e).removeClass().addClass(imgArr[i]);
+					})
+					index = myindex;
+					show();
+				}
+				else if(b<0){
+					imgArr.reverse();
+					var oldarr=imgArr.splice(0,-b)
+					imgArr=$.merge(imgArr,oldarr);
+					imgArr.reverse();
+					$("li").each(function(i,e){
+						$(e).removeClass().addClass(imgArr[i]);
+					})
+					index=myindex;
+					show();
+				}
+			})
+		})
+
+		//点击class为p2的元素触发上一张的函数
+		$(document).on("click",".p2",function(){
+			previmg();
+			return false;//返回一个false值，让a标签不跳转
+		})
+
+		//点击class为p4的元素触发下一张的函数
+		$(document).on("click",".p4",function(){
+			nextimg();
+			return false;
+		})
+
+		//鼠标移入box时清除计时器
+		$(".box").mouseover(function(){
+			clearInterval(timer);
+		})
+
+		//鼠标移出box时开启计时器
+		$(".box").mouseleave(function(){
+			timer = setInterval(nextimg, 4000);
+		})
+
+		//进入页面开始计时器
+		timer = setInterval(nextimg, 4000);
+	</script>
+</body>
+</html>

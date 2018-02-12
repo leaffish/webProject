@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>图片随机排序</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#main{
+			font-size: 16px;
+			text-align: center;
+			margin: 50px auto;
+		}
+		.button{
+			display: inline-block;
+			font: 13.3333px Arial;
+			width: 80px;
+			height: 30px;
+			line-height: 32px;
+			background: #7fbb9d;
+			color: #fff;
+			text-decoration: none;
+			border: 2px solid #126f0f; 
+			border-radius: 15px;
+			margin: 0 50px;
+		}
+		.button:hover{
+			background: #25ab68;
+		}
+		#tab{
+			margin: 30px auto;
+		}
+		#tab ul{
+			list-style: none;
+			width: 1000px;
+			margin: 0 auto;
+		}
+		#tab li{
+			float: left;
+			cursor: pointer;
+		}
+		#tab li img{
+			width: 300px;
+			height: 169px;
+			margin: 20px 10px;
+		}
+		#tab li span{
+			color: #7fbb9d;
+			font-weight: bold;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var but = document.getElementsByTagName("a");
+			var li = document.getElementById("tab").getElementsByTagName("li");
+			var arr1 = [];
+			var arr2 = [];
+			var arr3 = [];
+
+			for(var i=0; i<li.length; i++){
+				arr1.push(li[i].getElementsByTagName("img")[0].src);
+				arr2.push(li[i].getElementsByTagName("span")[0].innerHTML);
+				arr3.push(i);
+			}
+
+			var onOff = true;
+
+			but[0].onclick = function(){
+				if(onOff){
+					arr3.sort(function(a,b){
+						return b-a;
+					})
+				}else{
+					arr3.sort(function(a,b){
+						return a-b;
+					})
+				}
+				change();
+				onOff = !onOff;
+			}
+
+			but[1].onclick = function(){
+				arr3.sort(function(a,b){
+					return Math.random()-0.5;
+				})
+				change();
+			}
+
+			function change(){
+				for(var i=0; i<arr3.length; i++){
+					li[i].getElementsByTagName("img")[0].src = arr1[arr3[i]];
+					li[i].getElementsByTagName("span")[0].innerHTML = arr2[arr3[i]];
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="main">
+		<a class="button" href="javascript:;">顺序排列</a>
+		<a class="button" href="javascript:;">随机</a>
+		<div id="tab">
+			<ul>
+				<li><img src="./images/1.jpg"><br><span>ONE</span></li>
+				<li><img src="./images/2.jpg"><br><span>TWO</span></li>
+				<li><img src="./images/3.jpg"><br><span>THREE</span></li>
+				<li><img src="./images/4.jpg"><br><span>FOUR</span></li>
+				<li><img src="./images/5.jpg"><br><span>FIVE</span></li>
+				<li><img src="./images/6.jpg"><br><span>SIX</span></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

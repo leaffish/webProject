@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Magnifier</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#org{
+			width: 600px;
+			height: 385px;
+			position: relative;
+			border: 5px solid #000;
+			top: 20px;
+			left: 20px;
+		}
+		#org img{
+			width: 100%;
+			height: 100%;
+		}
+		#lay{
+			position: absolute;
+			width: 120px;
+			height: 77px;
+			background: rgba(255,0,0,0.5);
+			left: 0;
+			top:0 ;
+			cursor: move;
+			display: none;
+		}
+		#mag{
+			width: 600px;
+			height: 385px;
+			position: absolute;
+			border: 5px solid #000;
+			overflow: hidden;
+			left: 650px;
+			top: 20px;
+			display: none;
+		}
+		#mag img{
+			position: absolute;
+			width: 3002px;
+			height: 1926px;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var org = document.getElementById("org");
+			var lay = document.getElementById("lay");
+			var mag = document.getElementById("mag");
+			var magImg = mag.firstElementChild;
+
+			//鼠标移入时，显示放大镜
+			org.onmouseover = function(){
+				lay.style.display = "block";
+				mag.style.display = "block";
+			}
+			//鼠标移出时，隐藏放大镜
+			org.onmouseout = function(){
+				lay.style.display = "none";
+				mag.style.display = "none";
+			}
+
+			org.onmousemove = function(e){
+				var e = e || event;//兼容IE和FireFox Chrome
+				//将鼠标置于放大镜中间,x代表放大镜的left,y代表放大镜的top
+				var x = e.clientX - lay.offsetWidth/2 - org.offsetLeft - org.clientLeft;
+				var y = e.clientY - lay.offsetHeight/2 - org.offsetTop - org.clientTop;
+				//设置边界
+				var right = org.offsetWidth - lay.offsetWidth - org.clientLeft * 2; //org的宽度减去本身边界的宽度再减去放大镜的宽度
+				var bottom = org.offsetHeight - lay.offsetHeight - org.clientTop * 2; //org的高度减去本身边界的宽度再减去放大镜的高度
+				if(x<0){
+					x = 0; //判断左边界，当超出时将x置为0; 
+				}
+				if(x>right){
+					x = right; //判断右边界，当超出时将x置为right; 
+				}
+				if(y<0){
+					y = 0; //判断上边界，当超出时将y置为0; 
+				}
+				if(y>bottom){
+					y = bottom; //判断下边界，当超出时将y置为bottom;
+				}
+				//放大镜随鼠标移动
+				lay.style.left = x + "px";
+				lay.style.top = y + "px";
+				//放大图片,放大倍数约为5倍
+				var imgLeft = lay.offsetLeft *5;
+				var imgTop = lay.offsetTop * 5;
+				magImg.style.left = -imgLeft +"px";
+				magImg.style.top = -imgTop +"px";
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="org">
+		<img src="images/1.jpg" alt="">
+		<span id="lay"></span>
+	</div>
+	<div id="mag">
+		<img src="images/1.jpg" alt="">
+	</div>
+
+</body>
+</html>

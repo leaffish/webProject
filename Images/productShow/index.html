@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>产品展示</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#main{
+			width: 862px;
+			height: 515px;
+			border: 2px solid #000;
+			margin: 20px auto;
+			position: relative;
+		}
+		#left{
+			width: 50%;
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index: 1;
+			overflow: hidden;
+		}
+		#bar{
+			width: 10px;
+			height: 100%;
+			background: #cd3736;
+			position: absolute;
+			left: 50%;
+			top: 0;
+			z-index: 2;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var main = document.getElementById("main");
+			var left = document.getElementById("left");
+			var right = document.getElementById("right");
+			var bar = document.getElementById("bar");
+
+			//当鼠标在图片上移动
+			main.onmousemove = function(e){
+				var e = e || event;
+				var width = e.clientX - this.offsetLeft - this.clientLeft;
+
+				if(width < 0){
+					width = 0;
+				}else if(width >= this.offsetWidth - bar.offsetWidth){
+					width = this.offsetWidth - bar.offsetWidth;
+				}
+
+				bar.style.left = width + "px";
+				bar.style.transition = "";
+				left.style.width = width + "px";
+				left.style.transition = "";
+			}
+			//当鼠标离开图片
+			main.onmouseout = function(){
+				bar.style.left = "50%";
+				bar.style.transition = "1s";
+				left.style.width = "50%";
+				left.style.transition = "1s";
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="main">
+		<div id="left"><img src="./images/1.jpg" alt=""></div>
+		<div id="right"><img src="./images/2.jpg" alt=""></div>
+		<div id="bar"></div>
+	</div>
+</body>
+</html>
