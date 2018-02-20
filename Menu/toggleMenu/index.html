@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.nav{
+			list-style: none;
+			width: 1002px;
+			margin: 20px auto;
+			border-top: 2px solid #4a4a4a;
+			transform: skew(-30deg);
+		}
+		.nav li{
+			position: relative;
+			float: left;
+			width: 138px;
+			height: 50px;
+			line-height: 50px;
+			overflow: hidden;
+			text-align: center;
+			cursor: pointer;
+			margin-right: 6px;
+		}
+		.text, .info{
+			width: 100%;
+			height: 100%;
+		}
+		.text{
+			font-size: 16px;
+			text-decoration: none;
+			color: #4a4a4a;
+			display: inline-block;
+			background: #D56464;
+		}
+		.info{
+			background: #4a4a4a;
+			color: #fff;
+			position: absolute;
+			top: 50px;
+			left: 0;
+			transition: all 0.5s ease;
+		}
+		.nav li span{
+			display: block;
+			transform: skew(30deg);
+		}
+		.nav li:hover .info{
+			top: 0;
+		}
+		.nav li:last-child{
+			margin-right: 0;
+		}
+	</style>
+</head>
+<body>
+	<ul class="nav">
+		<li>
+			<a href="#" class="text"><span>首页</span></a>
+			<div class="info"><span>Home</span></div>
+		</li>
+		<li>
+			<a href="#" class="text"><span>产品展示</span></a>
+			<div class="info"><span>Products</span></div>
+		</li>
+		<li>
+			<a href="#" class="text"><span>精品案例</span></a>
+			<div class="info"><span>Case</span></div>
+		</li>
+		<li>
+			<a href="#" class="text"><span>常见问题</span></a>
+			<div class="info"><span>Problems</span></div>
+		</li>
+		<li>
+			<a href="#" class="text"><span>新闻中心</span></a>
+			<div class="info"><span>News</span></div>
+		</li>
+		<li>
+			<a href="#" class="text"><span>关于我们</span></a>
+			<div class="info"><span>About us</span></div>
+		</li>
+		<li>
+			<a href="#" class="text"><span>联系我们</span></a>
+			<div class="info"><span>Contact us</span></div>
+		</li>
+	</ul>
+</body>
+</html>
