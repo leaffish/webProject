@@ -1,10 +1,6 @@
 /* 后续添加的样式*/
 @charset "utf-8";
 
-.sidebar{
-	border-radius:15px 15px 0 0;
-}
-
 .content_center{
 	position:relative;
 	text-align: left;
